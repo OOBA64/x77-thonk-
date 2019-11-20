@@ -7,6 +7,7 @@
 namespace m
 {
 	extern void clan_tag();
+	extern void clan_tag_og();
 	extern void auto_movement();
 	extern void crosshair();
 	extern void viewmodel();

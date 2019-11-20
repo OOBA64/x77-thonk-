@@ -35,6 +35,32 @@ namespace m
 
 	}
 
+	void clan_tag_og() // The og x77 clantag, :thonk: is gone *crab rave plays*
+	{
+
+		std::string	tag2 = " x77 Alpha  ";
+
+		static bool	reverse;
+		static int	index;
+
+		if (g::cmd->command_number % 16 == 0) {
+
+			index += reverse ? -1 : 1;
+
+			if (index > tag2.length() - 1 || index < 1)
+				reverse = !reverse;
+
+			index = u::clamp(index, 0, static_cast<int>(tag2.length()));
+
+			if (!vars::ctags::clan_tag_changer_2)
+				tag2.clear();
+
+			set_clan_tag(tag2.substr(0, index).c_str());
+
+		}
+
+	}
+
 
 	void auto_movement()
 	{

@@ -147,6 +147,7 @@ namespace v
 
 	}
 
+
 	void entity_loop()
 	{
 		player_info_t info;
@@ -565,94 +566,140 @@ namespace v
 
 		RECT text_size = i::surface->get_text_size_rect(f::arial_small, string.str().c_str());
 
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 235, color(250, 196, 0), f:: arial_small, string.str().c_str());
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 250, color(250, 196, 0), f::arial_small, " Thanks MasterLooser :)");
-		d::draw_string(vars::menu::menu_x + 185, vars::menu::menu_y - 250, color(250, 196, 0), f::arial_small, " Thanks Urosaurus :)");
+		d::draw_string(vars::menu::menu_x + 43, vars::menu::menu_y - 235, color(250, 196, 0), f:: arial_small, string.str().c_str());
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 250, color(250, 196, 0), f::arial_small, " Thanks MasterLooser :)");
+		d::draw_string(vars::menu::menu_x + 165, vars::menu::menu_y - 250, color(250, 196, 0), f::arial_small, " Thanks Urosaurus :)");
 		d::draw_string(vars::menu::menu_x - 240, vars::menu::menu_y - 200, color(66, 149, 245), f::arial_small, " x77 Alpha");
 		d::draw_string(vars::menu::menu_x - 240, vars::menu::menu_y - 190, color().rainbow(.01f, 255), f::arial_small, " -------------");
 		d::draw_string(vars::menu::menu_x - 240, vars::menu::menu_y - 210, color().rainbow(.01f, 255), f::arial_small, " -------------");
 
 
-		//Welcome to x88 on down syndrome//
+		//Welcome to x88 on down syndrome BLICKY WAS HERE CUH GANG GANG CRIP GANG SWANG BANG//
 		
 		//Aimbot x77//
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 200, color(255, 255, 255), f::tahoma_x88, " Aimbot:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 200, color(255, 255, 255), f::tahoma_x88, " Aimbot:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 185, color(255, 255, 255), f::tahoma_x88, " Aim Mode:");
 		if (vars::aim::aim_enabled == true)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 200, color(66, 149, 245), f::tahoma_x88, " ON");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 200, color(66, 149, 245), f::tahoma_x88, " ON");
 		else
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 200, color(255, 255, 255), f::tahoma_x88, " OFF");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 200, color(255, 255, 255), f::tahoma_x88, " OFF");
+
+		//Aimbot Type/Mode 
+		
+			if (vars::aim::aim_silent == true)
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 185, color().rainbow(0.001f, 255), f::tahoma_x88, " pSilent :)");
+			else if (vars::aim::aim_on_attack == true)
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 185, color(219, 56, 15), f::tahoma_x88, " Attack");
+			else if (vars::aim::aim_smooth > 0)
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 185, color(37, 184, 181), f::tahoma_x88, " Smooth");
+			else if (vars::aim::aim_enabled == true)
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 185, color(250, 196, 0), f::tahoma_x88, " Lock");
+			else
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 185, color(255, 255, 255), f::tahoma_x88, " OFF");
+		
 		
 		//Esp//
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 185, color(255, 255, 255), f::tahoma_x88, " Esp:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 170, color(255, 255, 255), f::tahoma_x88, " Esp:");
 		if (vars::esp::esp_enabled == 1)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 185, color(66, 149, 245), f::tahoma_x88, " Always");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 170, color(66, 149, 245), f::tahoma_x88, " Always");
 	    else if (vars::esp::esp_enabled == 2)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 185, color(176, 48, 44), f::tahoma_x88, " Dead");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 170, color(176, 48, 44), f::tahoma_x88, " Dead");
 	    else
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y -185, color(255, 255, 255), f::tahoma_x88, " OFF");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y -170, color(255, 255, 255), f::tahoma_x88, " OFF");
 		
 		//Ctag//
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 170, color(255, 255, 255), f::tahoma_x88, " Ctag:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 155, color(255, 255, 255), f::tahoma_x88, " Ctag:");
 		if (vars::ctags::clan_tag_changer == true)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 170, color(66, 149, 245), f::tahoma_x88, " gamesense");
-		else 
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 170, color(255, 255, 255), f::tahoma_x88, " OFF");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(66, 149, 245), f::tahoma_x88, " gamesense");
+		else if (vars::ctags::clan_tag_changer_2 == true)
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(66, 149, 245), f::tahoma_x88, " x77 Alpha");
+		else
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(255, 255, 255), f::tahoma_x88, " OFF");
 
 
 		//ThirdPerson// 
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 155, color(255, 255, 255), f::tahoma_x88, " ThirdP:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 140, color(255, 255, 255), f::tahoma_x88, " ThirdP:");
 		if (vars::vis::vis_third_person == 1)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 155, color(66, 149, 245), f::tahoma_x88, " Real");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 140, color(66, 149, 245), f::tahoma_x88, " Real");
 		else if (vars::vis::vis_third_person == 2)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 155, color(250, 196, 0), f::tahoma_x88, " Fake");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 140, color(250, 196, 0), f::tahoma_x88, " Fake");
 		else
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 155, color(255, 255, 255), f::tahoma_x88, " OFF");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 140, color(255, 255, 255), f::tahoma_x88, " OFF");
 
 
 		//AntiAim//
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 140, color().rainbow(.01f, 255), f::tahoma_x88, " AA:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 125, color().rainbow(.001f, 255), f::tahoma_x88, " AA:");
 		if (vars::hvh::hvh_anti_aim == true)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 140, color(176, 48, 44), f::tahoma_x88, " WARNING: ON");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 125, color(176, 48, 44), f::tahoma_x88, " WARNING: ON");
 		else
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 140, color(255, 255, 255), f::tahoma_x88, " OFF");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 125, color(255, 255, 255), f::tahoma_x88, " OFF");
 
+
+		//AntiAim Mode//
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 110, color(225, 255, 255), f::tahoma_x88, " AA Mode:");
+
+		if (vars::hvh::hvh_anti_aim == true) {
+
+			if (vars::hvh::hvh_jitter_range > 0.f)
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 110, color(247, 20, 221), f::tahoma_x88, " JITTA");
+			else if (vars::hvh::hvh_jitter_range == 0.f)
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 110, color(149, 59, 245), f::tahoma_x88, " STATEK");
+		}
+		else if (vars::hvh::hvh_anti_aim == false) 
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 110, color(255, 255, 255), f::tahoma_x88, " OFF");
+
+
+		//AntiAim dir// 
+		if (vars::hvh::hvh_anti_aim == true) {
+
+			if (g::left_key_pressed)
+				d::draw_string(vars::menu::menu_x + 80, vars::menu::menu_y - 125, color(105, 7, 242), f::tahoma_x88, " RIGHT");
+			else if (g::right_key_pressed)
+				d::draw_string(vars::menu::menu_x + 80, vars::menu::menu_y - 125, color(237, 17, 94), f::tahoma_x88, " LEFT");
+			
+		}
 
 		//bhop (I need to make a pointer so I can have both (strafe and hops) on movement)//
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 125, color(255, 255, 255), f::tahoma_x88, " Bhop:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 95, color(255, 255, 255), f::tahoma_x88, " Bhop:");
 		if (vars::misc::misc_auto_hop == true)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 125, color(66, 149, 245), f::tahoma_x88, " ON");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 95, color(66, 149, 245), f::tahoma_x88, " ON");
 		else
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 125, color(255, 255, 255), f::tahoma_x88, " OFF");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 95, color(255, 255, 255), f::tahoma_x88, " OFF");
 
 
 		//soon to be triggerbot
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 110, color(255, 255, 255), f::tahoma_x88, " Triggerbot:");
-		d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 110, color(245, 97, 5), f::tahoma_x88, " N/A");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 80, color(255, 255, 255), f::tahoma_x88, " Triggerbot:");
+		d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 80, color(245, 97, 5), f::tahoma_x88, " N/A");
 
 
 		//soon to be chams
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 95, color(255, 255, 255), f::tahoma_x88, " Chams:");
-		d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 95, color(245, 97, 5), f::tahoma_x88, " N/A");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 65, color(255, 255, 255), f::tahoma_x88, " Chams:");
+		d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 65, color(245, 97, 5), f::tahoma_x88, " N/A");
 
 
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 80, color(255, 255, 255), f::tahoma_x88, " Resolver:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 50, color(255, 255, 255), f::tahoma_x88, " Resolver:");
 		if (vars::hvh::hvh_resolver == true)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 80, color(66, 149, 245), f::tahoma_x88, " ON");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 50, color(66, 149, 245), f::tahoma_x88, " ON");
 		else 
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 80, color(255, 255, 255), f::tahoma_x88, " OFF");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 50, color(255, 255, 255), f::tahoma_x88, " OFF");
 
 
 		//xhair
-		d::draw_string(vars::menu::menu_x + 60, vars::menu::menu_y - 65, color(255, 255, 255), f::tahoma_x88, " Xhair:");
+		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 35, color(255, 255, 255), f::tahoma_x88, " Xhair:");
 		if (vars::vis::vis_force_crosshair == true)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 65, color(66, 149, 245), f::tahoma_x88, " Forced");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 35, color(66, 149, 245), f::tahoma_x88, " Forced");
 		else if 
 			(vars::vis::vis_recoil_crosshair == true)
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 65, color(250, 196, 0), f::tahoma_x88, " Recoil");
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 35, color(250, 196, 0), f::tahoma_x88, " Recoil");
 		else 
-			d::draw_string(vars::menu::menu_x + 170, vars::menu::menu_y - 65, color(255, 255, 255), f::tahoma_x88, " OFF");
-			
+			d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 35, color(255, 255, 255), f::tahoma_x88, " OFF");
 
+		//Aim FOV this is fucking aids but GANG GANG GANG CUH 
+	
+			d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 20, color(255, 255, 255), f::tahoma_x88, " a_FOV:");
+			
+				d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 20, color(255, 255, 255), f::tahoma_x88, " OFF");
+		
 	}
 
 	void lby_indicator()
@@ -669,9 +716,9 @@ namespace v
 	}
 
 	
-	void recoil_crosshair()//not finished 
+	void recoil_crosshair()//not finished, don't know why this doesnt work i'm fucking retarded. 
 	{
-
+		// checks lplayer is alive
 		if (!g::local || g::local->get_life_state() != LIFE_ALIVE) return;
 		
 	
@@ -679,7 +726,6 @@ namespace v
 		 int h,w;
 
 		i::engineclient->get_screen_size(w, h);
-		static const auto DrawSetColor = color::white();
 	
 		int x = w / 2;
 		int y = h / 2;
@@ -688,10 +734,10 @@ namespace v
 
 		vector aim = g::local->get_aim_punch_angle();
 
-		if (vars::vis::vis_recoil_crosshair)// = true in vars 
+		if (vars::vis::vis_recoil_crosshair) { // = true in vars 
 			d::draw_filled_rect(x - 5, y, 10, 1, color(255, 255, 255));
 			d::draw_filled_rect(x, y - 5, 1, 10, color(255, 255, 255));
-		
+		}
 	}
 
 	void arrows()

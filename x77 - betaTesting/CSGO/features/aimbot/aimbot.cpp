@@ -274,6 +274,12 @@ namespace a
 					if (vars::aim::aim_auto_shoot)
 						g::cmd->buttons |= IN_ATTACK;
 
+					//allows smoothing to work with hitchance
+					if (vars::aim::aim_smooth > 0)
+						//Hotfix for Random shooting
+						vars::aim::aim_hitchance_amt = 0.f;
+					
+
 				}
 
 			}
@@ -384,6 +390,21 @@ namespace a
 
 	}
 
+	int do_trigger_bot() {
+
+		if (vars::aim::aim_trigger_bot == true);
+
+
+
+
+
+
+
+		return 0; 
+	}
+
+
+
 
 	int	get_hitboxes(c_baseentity* target)
 	{
@@ -447,11 +468,13 @@ namespace a
 
 		}
 
+
 		// return shootable hitbox
 		for (auto i : scan) {
 			if (is_visible_length(target, g::local->get_eye_position(), get_hitbox_pos(target, i)))
 				return i;
 		}
+		
 
 	}
 

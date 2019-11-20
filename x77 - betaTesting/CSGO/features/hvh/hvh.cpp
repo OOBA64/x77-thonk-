@@ -57,7 +57,6 @@ namespace hvh
 
 	float get_direction()
 	{
-
 		// manual direction
 		if (g::left_key_pressed)
 			return 90.f;

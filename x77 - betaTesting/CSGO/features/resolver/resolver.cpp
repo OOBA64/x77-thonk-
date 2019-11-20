@@ -30,7 +30,7 @@ namespace resolver
 				// force eye angles to lby
 				ang->y = entity->get_lower_body_yaw();
 
-				// step??? <--- Does this mean aimstep?? 
+				// step??? <--- Does this mean aimstep?? I think I fucking wrote this idk -OOBAA #shorttermmemeoryloss XD LOL ROFL 
 				if (g::target != nullptr && 
 					(entity->get_index() == g::target->get_index())) {
 					switch (g::shots_missed) {

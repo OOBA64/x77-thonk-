@@ -793,7 +793,7 @@ public:
 	weapon_info* get_cs_wpn_info() 
 	{
 		using original_fn = weapon_info*(__thiscall*)(PVOID);
-		return u::call_vfunc<original_fn>(this, 456)(this);
+		return u::call_vfunc<original_fn>(this, 457)(this);
 	}
 
 	bool is_gun()
@@ -815,13 +815,13 @@ public:
 	float get_inaccuracy()
 	{
 		using original_fn = float(__thiscall*)(PVOID);
-		return u::call_vfunc<original_fn>(this, 478)(this);
+		return u::call_vfunc<original_fn>(this, 479)(this);
 	}
 
 	float get_spread()
 	{
 		using original_fn = float(__thiscall*)(PVOID);
-		return u::call_vfunc<original_fn>(this, 448)(this);
+		return u::call_vfunc<original_fn>(this, 449)(this);
 	}
 
 	void draw_crosshair()

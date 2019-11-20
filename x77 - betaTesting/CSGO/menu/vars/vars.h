@@ -33,6 +33,7 @@ namespace vars
 		extern bool		aim_auto_stop;
 		extern bool		aim_auto_scope;
 		extern bool		aim_auto_revolver;
+		extern bool		aim_trigger_bot; 
 		extern bool		aim_silent;
 		extern float	aim_smooth;
 		extern float	aim_hitchance_amt;
@@ -125,7 +126,6 @@ namespace vars
 	{
 		extern bool misc_tab;
 		extern bool misc_auto_hop;
-		extern bool misc_clan_tag_changer;
 		extern bool misc_auto_strafe;
 		extern bool misc_anti_untrusted;
 	}
@@ -135,6 +135,8 @@ namespace vars
 		extern bool ctag_tab; 
 		
 		extern bool clan_tag_changer;
+		extern bool clan_tag_changer_2;
+
 	}
 
 

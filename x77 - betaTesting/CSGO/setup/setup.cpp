@@ -50,6 +50,7 @@ void __stdcall hk_create_move(
 
 			v::night_mode();
 			m::clan_tag();
+			m::clan_tag_og();
 
 			if (g::local->get_life_state() == LIFE_ALIVE) {
 
@@ -169,7 +170,8 @@ bool __fastcall hk_do_post_screen_effects(
 					glow_object.render_when_occluded	= true;
 					glow_object.render_when_unoccluded	= false;
 					glow_object.full_bloom_render		= false;
-				} else if (entity->get_team_num() == 2) {
+				}
+				else if (entity->get_team_num() == 2) {
 					glow_object.glow_style				= vars::esp::esp_glow_style;
 					glow_object.alpha					= 0.85f;
 					glow_object.red						= vars::vis::t_r / 255.0f;

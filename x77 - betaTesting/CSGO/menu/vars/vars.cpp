@@ -25,11 +25,12 @@ namespace vars
 		bool	aim_on_attack			= false;
 		bool	aim_auto_shoot			= false;
 		bool	aim_auto_stop			= false;
+		bool	aim_trigger_bot			= false; 
 		bool	aim_auto_scope			= false;
 		bool	aim_auto_revolver		= false;
 		bool	aim_silent				= false;
 		float	aim_smooth				= 0.f;
-		float	aim_hitchance_amt		= 0.f;
+		float	aim_hitchance_amt		= 1.f;
 		bool	aim_target_teammates	= false;
 		bool	aim_ignore_jumping		= false;
 		int		aim_baim_after_x_shots	= 0;
@@ -119,7 +120,6 @@ namespace vars
 	{
 		bool	misc_tab				= false;
 		bool	misc_auto_hop			= false;
-		bool	misc_clan_tag_changer	= false; 
 		bool	misc_auto_strafe		= false;
 		bool	misc_anti_untrusted		= true;
 	}
@@ -130,6 +130,7 @@ namespace vars
 		bool	ctag_tab = false; 
 		
 		bool	clan_tag_changer = false; 
+		bool	clan_tag_changer_2 = false;
 	}
 
 
