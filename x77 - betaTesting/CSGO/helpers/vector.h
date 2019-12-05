@@ -184,6 +184,7 @@ public:
 
 	float normalize_in_place();
 
+
 };
 
 inline float vector_normalize(vector& angle) {

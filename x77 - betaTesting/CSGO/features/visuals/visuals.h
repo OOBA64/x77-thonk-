@@ -4,6 +4,7 @@
 #pragma once
 #endif
 
+
 namespace v
 {
 	extern void		vector_transform(const vector& some, const matrix3x4_t& matrix, vector& out);

@@ -231,9 +231,15 @@ int __fastcall hk_key_event(
 		if (key_num == KEY_H && vars::vis::vis_third_person > 0)
 			g::third_person_bind = !g::third_person_bind;
 
+		if (key_num == KEY_N && vars::hvh::hvh_air_stuck == true)
+			g::air_stuck_bind = !g::air_stuck_bind;
+
+
+
 		// manual anti aim
 		if (!vars::menu::menu_active) {
 
+			
 			if (key_num == KEY_LEFT) {
 				g::left_key_pressed = true; g::right_key_pressed = false;
 			} else if (key_num == KEY_RIGHT) {
@@ -247,6 +253,20 @@ int __fastcall hk_key_event(
 	return original_key_event(ecx, edx, event_code, key_num, current_binding);
 
 }
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
 
 void __fastcall hk_paint_traverse(
 	ipanel*			ecx,

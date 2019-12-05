@@ -116,6 +116,7 @@ namespace vars
 		extern bool		hvh_anti_aim;
 		extern int		hvh_fake_lag;
 		extern bool		hvh_fake_duck;
+		extern bool		hvh_air_stuck; 
 		extern bool		hvh_fake_walk;
 		extern float	hvh_yaw_add;
 		extern float	hvh_jitter_range;

@@ -171,6 +171,8 @@ namespace a
 
 	}
 
+	
+
 	void do_auto_revolver()
 	{
 
@@ -258,7 +260,7 @@ namespace a
 						if (!g::local->is_scoped() && (g::local->get_flags() & FL_ONGROUND) && can_shoot() && g::lowest_accuracy)
 							g::cmd->buttons |= IN_ATTACK2;
 					}
-
+					
 				}
 
 				if (hit_chance(g::target, wep, ang, end, vars::aim::aim_hitchance_amt)) {
@@ -311,6 +313,9 @@ namespace a
 		angle_vectors(direction, &forward);
 
 		vector negated_direction = forward * -speed;
+
+		
+					
 
 		if (g::target != nullptr) {
 

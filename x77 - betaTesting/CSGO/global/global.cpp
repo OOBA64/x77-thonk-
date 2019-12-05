@@ -18,6 +18,7 @@ namespace g
 	bool left_key_pressed	= false;
 	bool right_key_pressed	= true;
 	bool down_key_pressed	= false;
+	bool air_stuck_bind		= false; 
 
 	bool send_packet;
 

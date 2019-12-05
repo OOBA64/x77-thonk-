@@ -19,6 +19,7 @@ namespace g
 	extern bool					left_key_pressed;
 	extern bool					down_key_pressed;
 	extern bool					right_key_pressed;
+	extern bool					air_stuck_bind; 
 
 	extern bool					send_packet;
 

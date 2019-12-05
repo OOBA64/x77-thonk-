@@ -91,6 +91,8 @@ namespace hvh
 	float get_current_time(user_cmd* cmd) 
 	{
 
+
+
 		static user_cmd*	last_cmd	= nullptr;
 		static int			tick		= 0;
 
@@ -128,6 +130,17 @@ namespace hvh
 
 		return false;
 	}
+
+	//obviously only works in certain hvh servers// 
+	void air_stuck(bool& send_packet)
+	{
+		if (i::inputsystem->is_button_down(KEY_N)) 
+
+			g::cmd->tick_count = INT_MAX;
+
+			g::cmd->command_number = INT_MAX;
+	}
+
 
 	void anti_aim(bool& send_packet)
 	{
@@ -168,6 +181,7 @@ namespace hvh
 			ang.x = get_pitch();
 
 		}
+
 
 		u::fix_movement(ang);
 

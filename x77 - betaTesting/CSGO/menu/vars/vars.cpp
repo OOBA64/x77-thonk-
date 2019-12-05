@@ -110,6 +110,7 @@ namespace vars
 		bool	hvh_anti_aim			= false;
 		int		hvh_fake_lag			= 1;
 		bool	hvh_fake_duck			= false;
+		bool	hvh_air_stuck			= false; 
 		bool	hvh_fake_walk			= false;
 		float	hvh_yaw_add				= 0.f;
 		float	hvh_jitter_range		= 0.f;
