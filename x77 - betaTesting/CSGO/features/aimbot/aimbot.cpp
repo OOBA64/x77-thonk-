@@ -253,13 +253,17 @@ namespace a
 				g::lowest_accuracy = false;
 
 			if (can_shoot()) {
-
+				// Tried fixing double scope bug, I think its a hitchance problemas.
 				if (vars::aim::aim_auto_scope) {
 
-					if (g::local->get_active_weapon()->get_cs_wpn_info()->weapon_type == WEAPONTYPE_SNIPER_RIFLE) {
-						if (!g::local->is_scoped() && (g::local->get_flags() & FL_ONGROUND) && can_shoot() && g::lowest_accuracy)
-							g::cmd->buttons |= IN_ATTACK2;
-					}
+					if (g::local->get_active_weapon()->get_cs_wpn_info()->weapon_type == WEAPONTYPE_SNIPER_RIFLE) 
+						if (!g::local->is_scoped() && (g::local->get_flags() & FL_ONGROUND) && can_shoot() && g::lowest_accuracy) {
+
+							if (g::local->is_scoped() == 0)
+							{
+								g::cmd->buttons |= IN_ZOOM;
+							}
+					    }
 					
 				}
 
@@ -419,7 +423,7 @@ namespace a
 		if (vars::aim::aim_hitbox == 1) {
 			scan.push_back(HITBOX_HEAD);
 		} else if (g::local->get_active_weapon()->item_definition_index() == WEAPON_TASER) {
-			scan.push_back(HITBOX_CHEST);
+			scan.push_back(HITBOX_PELVIS);
 		} else if (vars::aim::aim_hitbox == 2) {
 
 			// torso

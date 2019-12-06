@@ -40,6 +40,7 @@ namespace m
 
 		std::string	tag2 = " x77 Alpha  ";
 
+
 		static bool	reverse;
 		static int	index;
 

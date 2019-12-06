@@ -278,6 +278,7 @@ namespace menu
 
 			i = add_menu_entry(i, "- Auto Hop", &vars::misc::misc_auto_hop);
 			i = add_menu_entry(i, "- Auto Strafe", &vars::misc::misc_auto_strafe);
+			i = add_menu_entry(i, "- Legit Slide Fix", &vars::misc::misc_legitaa_slidefix);
 			i = add_menu_entry(i, "- Anti Untrusted", &vars::misc::misc_anti_untrusted);
 
 			if (!vars::ctags::ctag_tab)
@@ -318,15 +319,15 @@ namespace menu
 				switch (items[i].type) {
 				case 0:
 					d::draw_string(vars::menu::menu_x + 360, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, items[i].name.c_str());
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", (*items[i].m_bool) ? "On" : "Off");
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", (*items[i].m_bool) ? "On" : "Off");
 					break;
 				case 1:
 					d::draw_string(vars::menu::menu_x + 360, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, items[i].name.c_str());
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%i", *items[i].m_int);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%i", *items[i].m_int);
 					break;
 				case 2:
 					d::draw_string(vars::menu::menu_x + 360, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, items[i].name.c_str());
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%.2f", *items[i].m_float);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%.2f", *items[i].m_float);
 					break;
 				case 3:
 					d::draw_string(vars::menu::menu_x + 360, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, items[i].name.c_str());
@@ -336,31 +337,31 @@ namespace menu
 				}
 
 				if (!strcmp(items[i].name.c_str(), "- Mode")) {
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", esp_options[(int)items[i].m_int[0]]);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", esp_options[(int)items[i].m_int[0]]);
 				}
 
 				if (!strcmp(items[i].name.c_str(), "- Hitbox")) {
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", hitbox_options[(int)items[i].m_int[0]]);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", hitbox_options[(int)items[i].m_int[0]]);
 				}
 
 				if (!strcmp(items[i].name.c_str(), "- Box")) {
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", box_options[(int)items[i].m_int[0]]);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", box_options[(int)items[i].m_int[0]]);
 				}
 
 				if (!strcmp(items[i].name.c_str(), "- Health")) {
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", health_options[(int)items[i].m_int[0]]);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", health_options[(int)items[i].m_int[0]]);
 				}
 
 				if (!strcmp(items[i].name.c_str(), "- Armor")) {
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", armor_options[(int)items[i].m_int[0]]);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", armor_options[(int)items[i].m_int[0]]);
 				}
 
 				if (!strcmp(items[i].name.c_str(), "- Thirdperson (H)")) {
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", tp_options[(int)items[i].m_int[0]]);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", tp_options[(int)items[i].m_int[0]]);
 				}
 
 				if (!strcmp(items[i].name.c_str(), "- Pitch")) {
-					d::draw_string(vars::menu::menu_x + 470, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", aa_pitch[(int)items[i].m_int[0]]);
+					d::draw_string(vars::menu::menu_x + 500, vars::menu::menu_y - 210 + (vars::menu::font_size * i) - 8, color(255, 255, 255, 255), f::tahoma_x88, "%s", aa_pitch[(int)items[i].m_int[0]]);
 				}
 
 			}

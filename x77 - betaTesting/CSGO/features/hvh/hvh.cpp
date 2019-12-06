@@ -52,6 +52,7 @@ namespace hvh
 		g::cmd->buttons |= IN_BULLRUSH;
 
 		if (vars::hvh::hvh_fake_duck && i::inputsystem->is_button_down(KEY_C))
+
 			(net_channel->choked_packets >= (vars::hvh::hvh_fake_lag / 2)) ? g::cmd->buttons |= IN_DUCK : g::cmd->buttons &= ~IN_DUCK;
 	}
 
@@ -117,10 +118,12 @@ namespace hvh
 
 		if (g::local->get_flags() & FL_ONGROUND) {
 
+			// walking, delay next update by .22s.
 			if (velocity > 0.1f) {
 				next_lby_update = server_time + 0.22f;
 			}
 
+			// standing, update every 1.1s.
 			if (server_time >= next_lby_update) {
 				next_lby_update = server_time + 1.1f;
 				return true;
@@ -143,6 +146,88 @@ namespace hvh
 
 
 	void anti_aim(bool& send_packet)
+	{
+
+		vector	ang		= g::cmd->viewangles;
+		float	delta	= g::local->get_max_desync_delta();
+		float	speed	= g::local->get_velocity().length2d() <= 0.1 ? (delta + 30.f) : delta;
+		auto	wep		= g::local->get_active_weapon();
+
+		auto feet_yaw_delta = g::cmd->viewangles.y - u::normalize_yaw(g::local->get_anim_state()->goal_feet_yaw);
+		
+		if (!wep || wep->get_cs_wpn_info()->weapon_type == WEAPONTYPE_GRENADE) return;
+
+		if (g::local->get_move_type() == MOVETYPE_LADDER || 
+			g::local->get_move_type() == MOVETYPE_NOCLIP) return;
+
+
+
+		if (vars::hvh::hvh_anti_aim && !(g::cmd->buttons & IN_ATTACK)) {
+
+			//Disable AA on velocity to mitigate fucked movement, and slidewalk.
+			if (vars::misc::misc_legitaa_slidefix) {
+				if (speed <= 30) return;
+			}
+			//shitty pasted aa for testing
+			if (send_packet && !i::clientstate->choked_commands) {
+				float delta = g::local->get_max_desync_delta();
+				float real = g::cmd->viewangles.y;
+
+				if (vars::hvh::hvh_fake_lag <= 0) {
+					g::send_packet = g::cmd->command_number % 2;
+				}
+
+				if (!g::send_packet) {
+
+					g::cmd->viewangles.y = real + delta;
+				}
+				else {
+
+					g::cmd->viewangles.y = real; 
+			 	}
+				
+				
+
+				if (feet_yaw_delta < delta)
+				
+				g::right_key_pressed ? ang.y += u::random_float(-vars::hvh::hvh_jitter_range, vars::hvh::hvh_jitter_range) : ang.y -= u::random_float(-vars::hvh::hvh_jitter_range, vars::hvh::hvh_jitter_range);
+				u::fix_movement(ang);
+			}
+			else if (!send_packet && !i::clientstate->choked_commands) {
+				u::fix_movement(ang);
+				ang.y += get_direction();
+			}
+			
+
+			if (should_break_lby()) {
+				send_packet = false;
+				u::fix_movement(ang);
+
+				ang.y -= 180.f;
+				
+			}
+
+			if (vars::hvh::hvh_yaw_add > 0.f)
+			g::right_key_pressed ? get_direction() - vars::hvh::hvh_yaw_add : get_direction() - vars::hvh::hvh_yaw_add;
+
+			ang.x = get_pitch();
+
+			u::fix_movement(ang);
+
+			g::cmd->viewangles = ang;
+
+		}
+
+
+		u::fix_movement(ang);
+
+		g::cmd->viewangles = ang;
+
+	}
+
+}
+
+/*void anti_aim(bool& send_packet)
 	{
 
 		vector	ang		= g::cmd->viewangles;
@@ -187,6 +272,4 @@ namespace hvh
 
 		g::cmd->viewangles = ang;
 
-	}
-
-}
+	}*/

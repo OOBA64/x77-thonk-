@@ -12,6 +12,7 @@ namespace v
 	extern color	get_entity_color(c_baseentity* entity);
 	extern void		projectiles(c_baseentity* entity, color col, unsigned long font);
 	extern void		players(float x, float y, float w, float h, player_info_t info, c_baseentity* entity, color col, unsigned long font, vector min, vector max, vector pos);
+	extern void     foot_history(float x, float y, float w, float h, player_info_t info, c_baseentity* entity, color col, unsigned long font, vector min, vector max, vector pos);
 	extern void		fov_circle();
 	extern void		third_person(client_frame_stage_t stage = FRAME_RENDER_START);
 	extern void		third_person_angles(client_frame_stage_t stage = FRAME_RENDER_START);

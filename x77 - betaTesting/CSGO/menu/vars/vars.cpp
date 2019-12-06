@@ -50,6 +50,7 @@ namespace vars
 		bool	esp_projectiles		= false;
 		bool	esp_steam_id		= false;
 		bool	esp_flags			= false;
+		bool	esp_bomb			= false; 
 		bool	esp_weapon			= false;
 		bool	esp_money			= false;
 		bool	esp_index			= false;
@@ -122,6 +123,7 @@ namespace vars
 		bool	misc_tab				= false;
 		bool	misc_auto_hop			= false;
 		bool	misc_auto_strafe		= false;
+		bool	misc_legitaa_slidefix   = false;
 		bool	misc_anti_untrusted		= true;
 	}
 

@@ -58,6 +58,7 @@ namespace vars
 		extern bool		esp_flags;
 		extern bool		esp_weapon;
 		extern bool		esp_money;
+		extern bool		esp_bomb;
 		extern bool		esp_index;
 		extern int		esp_armor;
 		extern bool		esp_distance;
@@ -128,6 +129,7 @@ namespace vars
 		extern bool misc_tab;
 		extern bool misc_auto_hop;
 		extern bool misc_auto_strafe;
+		extern bool misc_legitaa_slidefix;
 		extern bool misc_anti_untrusted;
 	}
 

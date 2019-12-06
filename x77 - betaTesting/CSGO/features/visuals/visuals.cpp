@@ -1,4 +1,5 @@
 ﻿#include "../../main.h"
+#include "../../helpers/util/util.h"
 #include "../../helpers/vector.h"
 #include <sstream>
 
@@ -371,6 +372,12 @@ namespace v
 
 		}
 
+		if (vars::esp::esp_bomb) {
+
+
+
+		}
+
 		if (vars::esp::esp_armor == 1 || 
 			vars::esp::esp_armor == 3) {
 			d::draw_string(x + w + 4, (y - 2) + side_add, col, font, entity->get_armor_name());
@@ -686,6 +693,7 @@ namespace v
 	}
 
 	
+
 	void recoil_crosshair()//not finished, don't know why this doesnt work i'm fucking retarded. 
 	{
 		// checks lplayer is alive
@@ -704,8 +712,8 @@ namespace v
 
 				vector punchAngle = g::local->get_aim_punch_angle();
 
-				x -= dx * punchAngle.yaw;
-				y += dy * punchAngle.pitch;
+				//x -= dx * punchAngle.yaw;   <---- I dont even fuckign know 
+				//y += dy * punchAngle.pitch;
 
 
 				d::draw_line(x - 5, y, x + 6, y , color(255, 255, 255));
@@ -744,16 +752,9 @@ namespace v
 				// fake
 				if (w2s(u::get_rotated_position(origin, g::last_fake_tick.y, distance), screen2)) {
 					d::draw_line(screen1.x, screen1.y, screen2.x, screen2.y, fake_color);
-					d::draw_string_centered(screen2.x, screen2.y, fake_color, f::arial, "desync");
+					d::draw_string_centered(screen2.x, screen2.y, fake_color, f::arial, "fake");
 				}
 
-				// lby
-				if (g::local->get_lower_body_yaw()) {
-					if (w2s(u::get_rotated_position(origin, g::local->get_lower_body_yaw(), distance), screen2)) {
-						d::draw_line(screen1.x, screen1.y, screen2.x, screen2.y, lby_color);
-						d::draw_string_centered(screen2.x, screen2.y, lby_color, f::arial, "lby");
-					}
-				}
 
 			}
 
