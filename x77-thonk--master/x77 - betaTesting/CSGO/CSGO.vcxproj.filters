@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="source\helpers">
+      <UniqueIdentifier>{8d51631e-ae49-4ec9-ba7c-935e22198ee5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk">
+      <UniqueIdentifier>{021e9cbe-1467-4d1d-8a7a-af898f5886cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk\client">
+      <UniqueIdentifier>{21bd5a47-3145-4f29-9d73-20dd01dcd90f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk\engine">
+      <UniqueIdentifier>{e98e2e13-75e5-4507-8770-bca5321267ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\global">
+      <UniqueIdentifier>{65eaa806-c15c-4f90-9b82-4ff650d2218a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\global\interfaces">
+      <UniqueIdentifier>{3ee3e4c1-a475-4fee-9479-cc567adc0fa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\global\hooks">
+      <UniqueIdentifier>{71351bde-36c1-4de7-a5e3-26b14287400c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\setup">
+      <UniqueIdentifier>{4f74dec0-41c3-4fbf-8d16-c8e992ce4bb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk\vgui">
+      <UniqueIdentifier>{d8cd8c0a-573f-4f28-9e9f-9665f41fa2b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk\datacache">
+      <UniqueIdentifier>{6078fec3-ad5b-47ca-a7a1-7e9b5ad54981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\global\draw">
+      <UniqueIdentifier>{200e922f-0e87-46b0-bbcc-8370c1ee49a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\global\fonts">
+      <UniqueIdentifier>{4c4f5f59-bb64-4701-8830-f929adae139f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\menu">
+      <UniqueIdentifier>{46edeb1f-d9a9-43a5-9b4f-96698b25a61d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\menu\vars">
+      <UniqueIdentifier>{bb52faf4-d874-4777-bda0-12dd61e4a3ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features">
+      <UniqueIdentifier>{55967a95-3a41-40d6-8c2f-8b8c6467e9ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features\misc">
+      <UniqueIdentifier>{178c1c7e-c24e-4c3a-97cc-445c406b055a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features\visuals">
+      <UniqueIdentifier>{b49ebcc3-e45b-4c7e-aaae-14cb44a3799e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features\aimbot">
+      <UniqueIdentifier>{0d88e67d-feb7-42a7-8cff-9467218dbe18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk\public">
+      <UniqueIdentifier>{f508c69e-d05a-4fb3-8578-532d315ae1b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk\client\c_baseentity">
+      <UniqueIdentifier>{7cde3704-b9a7-41e0-9939-12e66306c58f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk\misc">
+      <UniqueIdentifier>{f16e6936-29b8-4aff-a470-302676c640bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features\hvh">
+      <UniqueIdentifier>{cf4b0258-24a9-44a3-923f-f4c3643e2b7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features\resolver">
+      <UniqueIdentifier>{8df5adc8-7fce-4722-a1a1-eedba7283cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\helpers\util">
+      <UniqueIdentifier>{97fe4da0-de33-4ec4-a4a8-34e4a4f02313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\helpers\imgui">
+      <UniqueIdentifier>{d6a20323-266f-437c-825f-cfcb2fb3580b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\vmt.h">
+      <Filter>source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\vector.h">
+      <Filter>source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\sdk.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\engine\ivengineclient.h">
+      <Filter>source\sdk\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\client\chlclient.h">
+      <Filter>source\sdk\client</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\client\icliententitylist.h">
+      <Filter>source\sdk\client</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\client\iclientmodeshared.h">
+      <Filter>source\sdk\client</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\client\user_cmd.h">
+      <Filter>source\sdk\client</Filter>
+    </ClInclude>
+    <ClInclude Include="global\global.h">
+      <Filter>source\global</Filter>
+    </ClInclude>
+    <ClInclude Include="global\hooks\hooks.h">
+      <Filter>source\global\hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="global\interfaces\interfaces.h">
+      <Filter>source\global\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="setup\setup.h">
+      <Filter>source\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\vgui\ipanel.h">
+      <Filter>source\sdk\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\vgui\isurface.h">
+      <Filter>source\sdk\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\color.h">
+      <Filter>source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\engine\ienginevgui.h">
+      <Filter>source\sdk\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\datacache\imdlcache.h">
+      <Filter>source\sdk\datacache</Filter>
+    </ClInclude>
+    <ClInclude Include="global\fonts\fonts.h">
+      <Filter>source\global\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="global\draw\draw.h">
+      <Filter>source\global\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\vars\vars.h">
+      <Filter>source\menu\vars</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\menu.h">
+      <Filter>source\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\engine\ivdebugoverlay.h">
+      <Filter>source\sdk\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="features\visuals\visuals.h">
+      <Filter>source\features\visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="features\misc\misc.h">
+      <Filter>source\features\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="features\aimbot\aimbot.h">
+      <Filter>source\features\aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\engine\ienginetrace.h">
+      <Filter>source\sdk\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\bspflags.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\client\c_baseentity\c_baseentity.h">
+      <Filter>source\sdk\client\c_baseentity</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\global_vars_base.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\client\glow_outline_effect.h">
+      <Filter>source\sdk\client</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\inetchannel.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\client\input.h">
+      <Filter>source\sdk\client</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\misc\checksum_crc.h">
+      <Filter>source\sdk\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\misc\checksum_md5.h">
+      <Filter>source\sdk\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="features\hvh\hvh.h">
+      <Filter>source\features\hvh</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\client_frame_stage.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\buttoncode.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\dt_common.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\dt_recv.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\engine\ivmodelinfo.h">
+      <Filter>source\sdk\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\studio.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\icvar.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\inputsystem.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\igameevents.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="features\resolver\resolver.h">
+      <Filter>source\features\resolver</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\util\util.h">
+      <Filter>source\helpers\util</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\public\ivrenderview.h">
+      <Filter>source\sdk\public</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\address.h">
+      <Filter>source\helpers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="global\global.cpp">
+      <Filter>source\global</Filter>
+    </ClCompile>
+    <ClCompile Include="global\hooks\hooks.cpp">
+      <Filter>source\global\hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="global\interfaces\interfaces.cpp">
+      <Filter>source\global\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="setup\setup.cpp">
+      <Filter>source\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="global\fonts\fonts.cpp">
+      <Filter>source\global\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="global\draw\draw.cpp">
+      <Filter>source\global\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\vars\vars.cpp">
+      <Filter>source\menu\vars</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\menu.cpp">
+      <Filter>source\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="features\visuals\visuals.cpp">
+      <Filter>source\features\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="features\misc\misc.cpp">
+      <Filter>source\features\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="features\aimbot\aimbot.cpp">
+      <Filter>source\features\aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\client\c_baseentity\c_baseentity.cpp">
+      <Filter>source\sdk\client\c_baseentity</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\misc\checksum_crc.cpp">
+      <Filter>source\sdk\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\misc\checksum_md5.cpp">
+      <Filter>source\sdk\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="features\hvh\hvh.cpp">
+      <Filter>source\features\hvh</Filter>
+    </ClCompile>
+    <ClCompile Include="features\resolver\resolver.cpp">
+      <Filter>source\features\resolver</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers\util\util.cpp">
+      <Filter>source\helpers\util</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
