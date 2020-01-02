@@ -24,7 +24,7 @@ DWORD WINAPI init(LPVOID lpparam)
 		// engine related
 		s::setup_interfaces();
 		s::setup_hooks();
-
+		PlaySoundA(menu_sound, NULL, SND_ASYNC | SND_MEMORY);
 	}
 
 	// game event listeners
@@ -41,13 +41,12 @@ BOOL WINAPI DllMain(
 {
 	switch (fdwreason) {
 	case DLL_PROCESS_ATTACH:
-
+		
 		DisableThreadLibraryCalls(hinstdll);
 
 		if (auto handle = CreateThread(nullptr, NULL, init, hinstdll, NULL, nullptr)) {
 			CloseHandle(handle);
 		}
-
 		return TRUE;
 	case DLL_PROCESS_DETACH:
 		FreeLibraryAndExitThread(hinstdll, 0);
@@ -55,4 +54,5 @@ BOOL WINAPI DllMain(
 	default:
 		return TRUE;
 	}
+
 }

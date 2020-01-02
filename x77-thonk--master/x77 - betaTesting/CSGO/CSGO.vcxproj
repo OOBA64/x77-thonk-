@@ -133,6 +133,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <GenerateMapFile>true</GenerateMapFile>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="chams.h" />
     <ClInclude Include="features\aimbot\aimbot.h" />
     <ClInclude Include="features\hvh\hvh.h" />
     <ClInclude Include="features\misc\misc.h" />
@@ -203,6 +205,7 @@
     <ClInclude Include="sdk\vgui\ipanel.h" />
     <ClInclude Include="sdk\vgui\isurface.h" />
     <ClInclude Include="setup\setup.h" />
+    <ClInclude Include="Sounds.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="features\aimbot\aimbot.cpp" />

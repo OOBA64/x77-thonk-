@@ -171,11 +171,11 @@ namespace menu
 			i = add_menu_entry(i, "- Draw FOV Circle", &vars::vis::vis_fov_circle);
 			i = add_menu_entry_int_string(i, "- Thirdperson (H)", &vars::vis::vis_third_person, 0, 2, 1);
 			i = add_menu_entry(i, "- No Vis Recoil", &vars::vis::vis_no_vis_recoil);
-			i = add_menu_entry(i, "- Recoil Crosshair", &vars::vis::vis_recoil_crosshair);// not working as of now, peek code in visuals//
+			i = add_menu_entry(i, "- Recoil Crosshair", &vars::vis::vis_recoil_crosshair);// not working as of now, peep code in visuals//
 			i = add_menu_entry(i, "- Force Crosshair", &vars::vis::vis_force_crosshair);
 			i = add_menu_entry(i, "- Nightmode", &vars::vis::vis_night_mode);
 			i = add_menu_entry(i, "- Field Of View", &vars::vis::vis_fov, 0.f, 80.f, 5.f);
-			i = add_menu_entry(i, "- Hit/Miss", &vars::vis::vis_hit_miss);
+			i = add_menu_entry(i, "- Hit/Miss", &vars::vis::vis_hit_miss, 0, 2, 1);
 			i = add_menu_entry(i, "- LBY Indicator", &vars::vis::vis_lby_indicator);
 			i = add_menu_entry(i, "- AA Lines", &vars::vis::vis_anti_aim_lines);
 			i = add_menu_entry(i, "- Skeet Line", &vars::vis::vis_skeet_line);
@@ -259,7 +259,6 @@ namespace menu
 			i = add_menu_entry(i, "[-] HvH:", &vars::hvh::hvh_tab);
 
 			i = add_menu_entry(i, "- Resolver", &vars::hvh::hvh_resolver);
-			i = add_menu_entry(i, "- Fake Lag", &vars::hvh::hvh_fake_lag, 1, 14, 1);
 			i = add_menu_entry(i, "- Slow Walk (LSHIFT)", &vars::hvh::hvh_fake_walk);
 			i = add_menu_entry(i, "- Fake Duck (C)", &vars::hvh::hvh_fake_duck);
 			i = add_menu_entry(i, "- AirStuck (N)", &vars::hvh::hvh_air_stuck);
@@ -280,6 +279,7 @@ namespace menu
 
 			i = add_menu_entry(i, "- Auto Hop", &vars::misc::misc_auto_hop);
 			i = add_menu_entry(i, "- Auto Strafe", &vars::misc::misc_auto_strafe);
+			i = add_menu_entry(i, "- ClanTags", &vars::misc::clan_tag_changer, 0, 10, 1);
 			i = add_menu_entry(i, "- Movement Fix", &vars::misc::misc_legitaa_slidefix); //<-- This is so fucking retarded lol 
 			i = add_menu_entry(i, "- Anti Untrusted", &vars::misc::misc_anti_untrusted);
 
@@ -290,16 +290,6 @@ namespace menu
 				i = add_menu_entry(i, "[-] CVARS:", &vars::cvars::cvar_tab);
 
 				
-
-			}
-
-			if (!vars::ctags::ctag_tab)
-				i = add_menu_entry(i, "[+] CTags:", &vars::ctags::ctag_tab);
-			if (vars::ctags::ctag_tab) {
-
-				i = add_menu_entry(i, "[-] Ctags:", &vars::ctags::ctag_tab);
-
-				i = add_menu_entry(i, "- AllTags", &vars::ctags::clan_tag_changer, 0, 10, 1); // v3rey guud p1000  
 
 			}
 		}

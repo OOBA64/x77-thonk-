@@ -28,6 +28,10 @@ namespace g
 	int	shots_hit		= 0;
 	int shots_missed	= 0;
 
+	int shotf = 0; 
+	int shoth = 0; 
+	int shotm = 0; 
+
 	int width;
 	int height;
 

@@ -188,9 +188,8 @@ namespace hvh
 			if (send_packet && !i::clientstate->choked_commands) {
 				float	speed = g::local->get_velocity().length2d() <= 0.1 ? (delta + 30.f) : delta;
 
-				if (vars::hvh::hvh_fake_lag <= 0) {
-					g::send_packet = g::cmd->command_number % 3;
-				}
+					g::send_packet = g::cmd->command_number % 2;
+				
 					if (!send_packet)
 					{
 							if (should_break_lby)

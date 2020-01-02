@@ -674,7 +674,6 @@ public:
 	{
 		return *reinterpret_cast<vector*>(uintptr_t(this) + 0x108) + get_abs_origin(); // m_vecViewOffset[0]
 	}
-
 	float get_max_desync_delta()
 	{
 

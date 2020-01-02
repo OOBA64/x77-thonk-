@@ -30,11 +30,11 @@ namespace m
 		static int	index;
 
 		//tag reset
-		if (vars::ctags::clan_tag_changer == 0) {
+		if (vars::misc::clan_tag_changer == 0) {
 			std::string tag = " "; //After adding multiple tags tag.clear doesnt work
 				set_clan_tag(tag.substr(0, index).c_str());
 		}
-		else if (vars::ctags::clan_tag_changer == 1) {
+		else if (vars::misc::clan_tag_changer == 1) {
 			std::string tag = " x77 Alpha  ";
 			if (g::cmd->command_number % 20 == 0) {
 
@@ -44,14 +44,14 @@ namespace m
 					reverse = !reverse;
 
 				index = u::clamp(index, 0, static_cast<int>(tag.length()));
-				if (vars::ctags::clan_tag_changer == 0) {
+				if (vars::misc::clan_tag_changer == 0) {
 					tag.clear();
 				}
 
 				set_clan_tag(tag.substr(0, index).c_str());
 			}
 		}
-		else if (vars::ctags::clan_tag_changer == 2) {
+		else if (vars::misc::clan_tag_changer == 2) {
 			std::string tag = " gamesense    "; //Scaring away de predators 
 			if (g::cmd->command_number % 24 == 0) {
 
@@ -61,14 +61,14 @@ namespace m
 					reverse = !reverse;
 
 				index = u::clamp(index, 0, static_cast<int>(tag.length()));
-				if (vars::ctags::clan_tag_changer == 0) {
+				if (vars::misc::clan_tag_changer == 0) {
 					tag.clear();
 				}
 
 				set_clan_tag(tag.substr(0, index).c_str());
 			}
 		}
-		else if (vars::ctags::clan_tag_changer == 3) {
+		else if (vars::misc::clan_tag_changer == 3) {
 			std::string tag = " w33b stomp3r  ";
 			if (g::cmd->command_number % 16 == 0) {
 
@@ -78,14 +78,14 @@ namespace m
 					reverse = !reverse;
 
 				index = u::clamp(index, 0, static_cast<int>(tag.length()));
-				if (vars::ctags::clan_tag_changer == 0) {
+				if (vars::misc::clan_tag_changer == 0) {
 					tag.clear();
 				}
 
 				set_clan_tag(tag.substr(0, index).c_str());
 			}
 		}
-		else if (vars::ctags::clan_tag_changer == 4) {
+		else if (vars::misc::clan_tag_changer == 4) {
 			std::string tag = "..-.._.--..";
 			if (g::cmd->command_number % 18 == 0) {
 
@@ -95,14 +95,14 @@ namespace m
 					reverse = !reverse;
 
 				index = u::clamp(index, 0, static_cast<int>(tag.length()));
-				if (vars::ctags::clan_tag_changer == 0) {
+				if (vars::misc::clan_tag_changer == 0) {
 					tag.clear();
 				}
 
 				set_clan_tag(tag.substr(0, index).c_str());
 			}
 		}
-		else if (vars::ctags::clan_tag_changer == 5) {
+		else if (vars::misc::clan_tag_changer == 5) {
 			std::string tag = "AyyWare  ";
 			if (g::cmd->command_number % 22 == 0) {
 
@@ -112,7 +112,7 @@ namespace m
 					reverse = !reverse;
 
 				index = u::clamp(index, 0, static_cast<int>(tag.length()));
-				if (vars::ctags::clan_tag_changer == 0) {
+				if (vars::misc::clan_tag_changer == 0) {
 					tag.clear();
 				}
 
@@ -120,7 +120,7 @@ namespace m
 
 			}
 		}
-		else if (vars::ctags::clan_tag_changer == 6) {
+		else if (vars::misc::clan_tag_changer == 6) {
 			std::string tag = "Dracula Premium  ";
 			if (g::cmd->command_number % 18 == 0) {
 
@@ -130,7 +130,7 @@ namespace m
 					reverse = !reverse;
 
 				index = u::clamp(index, 0, static_cast<int>(tag.length()));
-				if (vars::ctags::clan_tag_changer == 0) {
+				if (vars::misc::clan_tag_changer == 0) {
 					tag.clear();
 				}
 
@@ -139,8 +139,8 @@ namespace m
 			}
 		}
 
-		else if (vars::ctags::clan_tag_changer == 10) {
-		std::string tag = "oneclap.su ";
+		else if (vars::misc::clan_tag_changer == 10) {
+		std::string tag = "BungaWare ";
 		if (g::cmd->command_number % 18 == 0) {
 
 			index += reverse ? -1 : 1;
@@ -149,7 +149,7 @@ namespace m
 				reverse = !reverse;
 
 			index = u::clamp(index, 0, static_cast<int>(tag.length()));
-			if (vars::ctags::clan_tag_changer == 0) {
+			if (vars::misc::clan_tag_changer == 0) {
 				tag.clear();
 			}
 
@@ -159,31 +159,31 @@ namespace m
 		}
 		//---------------------------static---------------------------//
 	
-		else if (vars::ctags::clan_tag_changer == 7) {
+		else if (vars::misc::clan_tag_changer == 7) {
 			std::string tag = "x77 Cheats ";
 			index = u::clamp(index, 0, static_cast<int>(tag.length()));
 
-			if (vars::ctags::clan_tag_changer == 0) {
+			if (vars::misc::clan_tag_changer == 0) {
 				tag.clear();
 			}
 			set_clan_tag(tag.substr(0, index).c_str());
 		}
-		else if (vars::ctags::clan_tag_changer == 8) {
+		else if (vars::misc::clan_tag_changer == 8) {
 			std::string tag = "hopped ";
-			if (vars::ctags::clan_tag_changer == 0) {
+			if (vars::misc::clan_tag_changer == 0) {
 				tag.clear();
 			}
 			set_clan_tag(tag.substr(0, index).c_str());
 		}
 		//THey patched the valve ctag :'(
-		else if (vars::ctags::clan_tag_changer == 9) {
+		else if (vars::misc::clan_tag_changer == 9) {
 			std::string tag = "[VALVE] ";
-			if (vars::ctags::clan_tag_changer == 0) {
+			if (vars::misc::clan_tag_changer == 0) {
 				tag.clear();
 			}
 			set_clan_tag(tag.substr(0, index).c_str());
 		}
-
+		
 	}
 
 	void auto_movement()

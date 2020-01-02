@@ -78,7 +78,7 @@ void __stdcall hk_create_move(
 
 	}
 
-	// anti ut
+	// anti ut *I think this is clamping angles idk* 
 	if (vars::misc::misc_anti_untrusted)
 		g::cmd->viewangles = u::normalize_angle(g::cmd->viewangles);
 
@@ -251,19 +251,6 @@ int __fastcall hk_key_event(
 	return original_key_event(ecx, edx, event_code, key_num, current_binding);
 
 }
-
-
-
-
-
-
-
-	
-
-
-
-
-
 
 
 void __fastcall hk_paint_traverse(

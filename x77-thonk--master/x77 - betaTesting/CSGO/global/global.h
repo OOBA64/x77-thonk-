@@ -29,6 +29,10 @@ namespace g
 	extern int					shots_hit;
 	extern int					shots_missed;
 
+	extern int					shotf;
+	extern int					shoth;
+	extern int					shotm;
+
 	extern int					width;
 	extern int					height;
 

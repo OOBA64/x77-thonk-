@@ -88,9 +88,10 @@ namespace vars
 		extern bool		vis_no_scope;
 		extern bool		vis_recoil_crosshair;
 		extern bool		vis_force_crosshair;
-		extern bool		vis_hit_miss;
+		extern int		vis_hit_miss;
 		extern bool		vis_preserve_killfeed;
 		extern bool		vis_skeet_line;
+		extern bool		vis_aa_info;
 		extern bool		vis_anti_aim_lines;
 		extern bool		vis_lby_indicator;
 		extern bool		vis_watermark;
@@ -136,19 +137,9 @@ namespace vars
 		extern bool misc_auto_hop;
 		extern bool misc_auto_strafe;
 		extern bool misc_legitaa_slidefix;
+		extern int clan_tag_changer;
 		extern bool misc_anti_untrusted;
 	}
-
-	namespace ctags
-	{
-		extern bool ctag_tab; 
-		
-		extern int clan_tag_changer;
-		extern int static_clantag_changer;
-		extern bool time_clan_tag; 
-	}
-
-
 }
 
 #endif // !VARS_H

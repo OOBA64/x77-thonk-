@@ -80,6 +80,12 @@
     <Filter Include="source\helpers\imgui">
       <UniqueIdentifier>{d6a20323-266f-437c-825f-cfcb2fb3580b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\global\Sounds">
+      <UniqueIdentifier>{99892e34-98b9-4559-95dc-274f619ba399}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features\chams">
+      <UniqueIdentifier>{513f2106-3f33-481d-96cd-186adc4c62ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -228,6 +234,12 @@
     </ClInclude>
     <ClInclude Include="helpers\address.h">
       <Filter>source\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Sounds.h">
+      <Filter>source\global\Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="chams.h">
+      <Filter>source\features\chams</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

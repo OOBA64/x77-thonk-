@@ -145,7 +145,7 @@ namespace v
 		w -= ((right - left) / 8) * 2;
 
 		if (vars::esp::esp_enabled > 0)
-			players(x, y, w, h, info, entity, col, f::arial, min, max, pos);
+			players(x, y, w, h, info, entity, col, f::tahoma_x88, min, max, pos);
 
 	}
 
@@ -173,7 +173,7 @@ namespace v
 
 			draw_dynamic_box(entity, info, get_entity_color(entity));
 
-			projectiles(entity, color::white(), f::arial_blur);
+			projectiles(entity, color::white(), f::tahoma_x88);
 
 		}
 
@@ -480,7 +480,37 @@ namespace v
 		}
 
 	}
+		/*
+	void skeleton_esp()
+	{
 
+		auto entity = reinterpret_cast<c_baseentity*>(i::entitylist->get_client_entity(i));
+
+
+		studiohdr_t* pStudioHdr = i::modelinfo->get_studio_model(entity->get_model());
+		if (!pStudioHdr)
+			return;
+		vector vParent, vChild, sParent, sChild;
+		for (int j = 0; j < pStudioHdr->numbones; j++)
+		{
+			mstudiobone_t* pBone = pStudioHdr->get_bone(j);
+			if (pBone && (pBone->flags & BONE_USED_BY_HITBOX) && (pBone->parent != -1))
+			{
+				vChild = entity->get_bone_position(j);
+				vParent = entity->get_bone_position(pBone->parent);
+				if (vector_transform(vParent, sParent) && vector_transform(vChild, sChild))
+				{
+					bool is_ct = entity->get_team_num() == TEAM_CS_CT;
+					color terrorist(255, 15, 15);
+					color ct(15, 15, 255);
+					d::draw_line(sParent[0], sParent[1], sChild[0], sChild[1],
+						color(is_ct ? ct : terrorist));
+				}
+			}
+		}
+		
+	}	
+	*/
 	void night_mode()
 	{
 
@@ -551,7 +581,7 @@ namespace v
 
 	
 
-	void hitmiss()//smh my head this is some ugly ass code WHY DID I MAKE THIS
+	void hitmiss()//WHAT THE FUCK AM I DOIIINGGG WIIITTTH MY LIIIFEEEE
 	{
 		std::stringstream	Cock;
 		std::stringstream   Jew;
@@ -560,25 +590,48 @@ namespace v
 		static int	hit, miss, fired; 
 
 		// shots
-		hit = g::shots_hit;
-		fired = g::shots_fired;
-		miss = g::shots_missed;
+		hit = g::shoth;
+		fired = g::shotf;
+		miss = g::shotm;
 
-		// Shots missed
-		if (g::shots_fired > 0) {
-			g::shots_missed = fired - hit;
-		}
-		
-		if (vars::vis::vis_hit_miss) {
+		//Could use cases to be valve code certified, but there would only be 2 cases, no point.
+		if (vars::vis::vis_hit_miss == 2) {
 			Cock << "Hit" << ": " << hit;
 			Balls << "Missed" << ": " << miss;
 			Jew << "Fired" << ": " << fired; 
 
-			d::draw_string(vars::menu::menu_x - 200, vars::menu::menu_y + 175, color(15, 15, 245), f::tahoma_large, Cock.str().c_str());
-			d::draw_string(vars::menu::menu_x - 200, vars::menu::menu_y + 200, color(245, 15, 15), f::tahoma_large, Balls.str().c_str());
-			d::draw_string(vars::menu::menu_x - 200, vars::menu::menu_y + 225, color(15, 15, 15), f::tahoma_large, Jew.str().c_str());
+			d::draw_string(vars::menu::menu_x - 250, vars::menu::menu_y + 175, color(15, 15, 245), f::tahoma_large, Cock.str().c_str());
+
+			d::draw_string(vars::menu::menu_x - 250, vars::menu::menu_y + 210, color(245, 15, 15), f::tahoma_large, Balls.str().c_str());
+
+			d::draw_string(vars::menu::menu_x - 250, vars::menu::menu_y + 235, color(15, 15, 15), f::tahoma_large, Jew.str().c_str());
+		}
+		else if (vars::vis::vis_hit_miss == 1) {
+				Cock << "Hit" << ": " << hit;
+				Balls << "Missed" << ": " << miss;
+				Jew << "Fired" << ": " << fired;
+
+				if (vars::hvh::hvh_anti_aim){
+					d::draw_string(vars::menu::menu_x + 208, vars::menu::menu_y - 82, color(255, 255, 255), f::tahoma_x88, Cock.str().c_str());
+
+					d::draw_string(vars::menu::menu_x + 208, vars::menu::menu_y - 95, color(255, 255, 255), f::tahoma_x88, Balls.str().c_str());
+
+					d::draw_string(vars::menu::menu_x + 208, vars::menu::menu_y - 107, color(228, 73, 73), f::tahoma_x88, Jew.str().c_str());
+				
+				
+				}
+				else
+				{
+					d::draw_string(vars::menu::menu_x + 190, vars::menu::menu_y - 82, color(255, 255, 255), f::tahoma_x88, Cock.str().c_str());
+
+					d::draw_string(vars::menu::menu_x + 190, vars::menu::menu_y - 95, color(255, 255, 255), f::tahoma_x88, Balls.str().c_str());
+
+					d::draw_string(vars::menu::menu_x + 190, vars::menu::menu_y - 107, color(228, 73, 73), f::tahoma_x88, Jew.str().c_str());
+				}
 		}
 	}
+
+
 
 
 	void user()
@@ -592,25 +645,60 @@ namespace v
 
 		if (!g::local || !net_channel || !i::globals || !i::engineclient->get_player_info(i::engineclient->get_local_player(), &info)) return;
 
-		if ((i::globals->tickcount - old_tick_count) > 50) {
-			fps = static_cast<int>(1.f / i::globals->frametime);
-			old_tick_count = i::globals->tickcount;
-		}
-
-		std::string outgoing = g::local ? std::to_string((int)(net_channel->get_latency(FLOW_OUTGOING) * 1000)) : "0";
-
-		auto t = std::time(nullptr);
-		auto tm = *std::localtime(&t);
-
+		
+		//#cringedickballs
 		if (vars::vis::vis_skeet_line) {
 			d::draw_filled_rect(vars::menu::menu_x - 250, vars::menu::menu_y - 250, vars::menu::bar_width + 2000, vars::menu::bar_height - 20, color().rainbow(.001f, 255));
 		}
 
+		//Draw Local Player and other things.
+		const c_baseentity* address = reinterpret_cast<c_baseentity*>(i::entitylist->get_client_entity(i::engineclient->get_local_player()));
+		std::stringstream ss;
+		std::stringstream Pussy;
+		ss << address;
+		std::string localptr = ss.str();
+		Pussy << "Local Player " << localptr;
+		d::draw_string(vars::menu::menu_x + 180, vars::menu::menu_y - 225, color(250, 196, 0), f::arial_small, Pussy.str().c_str());
+		
 
-		string << "Hello " << (std::string)info.name << " :)";
+		if (vars::hvh::hvh_anti_aim && vars::vis::vis_aa_info)
+		{
+			color Cunt(230, 30, 30);
+			
+			std::stringstream Thing1;
+			std::stringstream Thing2;
+			std::stringstream Thing3;
+
+			bool Color1;
+
+			//Draw Fake
+			std::string Jew = std::to_string(roundf(g::last_fake_tick.y * 100) / 100);
+			Thing1 << "Fake: " + Jew.erase(Jew.length() - 4);
+			d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 213, color(250, 196, 0), f::tahoma_x88, Thing1.str().c_str());
+
+			//Draw Real
+			std::string Jew2 = std::to_string(roundf(g::last_real_tick.y * 100) / 100);
+			Thing2 << "Real: " + Jew2.erase(Jew2.length() - 4);
+			d::draw_string(vars::menu::menu_x + 115, vars::menu::menu_y - 213, color(250, 196, 0), f::tahoma_x88, Thing2.str().c_str());
+
+			//Draw and calc Difference
+			int diff = fabs(g::last_fake_tick.y - g::last_real_tick.y);
+			Thing3 << "Diff: " + std::to_string(diff);
+			
+			if (diff >= 32.f) {
+				d::draw_string(vars::menu::menu_x + 190, vars::menu::menu_y - 213, Cunt, f::tahoma_x88, Thing3.str().c_str());
+
+			}
+			else
+			d::draw_string(vars::menu::menu_x + 190, vars::menu::menu_y - 213, color(3, 252, 165), f::tahoma_x88, Thing3.str().c_str());
+		}
+		
+
 
 		RECT text_size = i::surface->get_text_size_rect(f::arial_small, string.str().c_str());
 
+
+		string << "Hello " << (std::string)info.name << " :)";
 		d::draw_string(vars::menu::menu_x + 43, vars::menu::menu_y - 225, color(250, 196, 0), f:: arial_small, string.str().c_str());
 		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 240, color(250, 196, 0), f::arial_small, " Thanks MasterLooser :)");
 		d::draw_string(vars::menu::menu_x + 165, vars::menu::menu_y - 240, color(250, 196, 0), f::arial_small, " Thanks Urosaurus :)");
@@ -619,9 +707,9 @@ namespace v
 		d::draw_string(vars::menu::menu_x - 240, vars::menu::menu_y - 210, color().rainbow(.01f, 255), f::arial_small, " -------------");
 
 
-		//Welcome to x88 on down syndrome. I kinda fixed this shit code. This is prolly how masta loosa does it just with freestanding.
+		//Welcome to x88 on down syndrome. I kinda fixed this shit code. This is prolly how masta loosa does it just with keybinds.
 		
-		//Aimbot x77//
+		//Aimbot//
 		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 200, color(255, 255, 255), f::tahoma_x88, " Aimbot:");
 		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 185, color(255, 255, 255), f::tahoma_x88, " Aim Mode:");
 		if (vars::aim::aim_enabled) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 200, color(66, 149, 245), f::tahoma_x88, " ON");
@@ -644,17 +732,17 @@ namespace v
 		
 		//Ctag//
 		d::draw_string(vars::menu::menu_x + 40, vars::menu::menu_y - 155, color(255, 255, 255), f::tahoma_x88, " Ctag:");
-		if (vars::ctags::clan_tag_changer == 1) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(66, 149, 245), f::tahoma_x88, " x77 Alpha");
-		else if (vars::ctags::clan_tag_changer == 2) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(117, 160, 13), f::tahoma_x88, " gamesense");
-		else if (vars::ctags::clan_tag_changer == 3) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(104, 13, 160), f::tahoma_x88, " w33b stomp3r");
-		else if (vars::ctags::clan_tag_changer == 4) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(160, 13, 89), f::tahoma_x88, " Morse");
-		else if (vars::ctags::clan_tag_changer == 5) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(13, 160, 33), f::tahoma_x88, " AyyWare");
-		else if (vars::ctags::clan_tag_changer == 6) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(95, 26, 186), f::tahoma_x88, " Dracula Premium");
+		if (vars::misc::clan_tag_changer == 1) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(66, 149, 245), f::tahoma_x88, " x77 Alpha");
+		else if (vars::misc::clan_tag_changer == 2) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(117, 160, 13), f::tahoma_x88, " gamesense");
+		else if (vars::misc::clan_tag_changer == 3) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(104, 13, 160), f::tahoma_x88, " w33b stomp3r");
+		else if (vars::misc::clan_tag_changer == 4) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(160, 13, 89), f::tahoma_x88, " Morse");
+		else if (vars::misc::clan_tag_changer == 5) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(13, 160, 33), f::tahoma_x88, " AyyWare");
+		else if (vars::misc::clan_tag_changer == 6) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(95, 26, 186), f::tahoma_x88, " Dracula Premium");
 		//Start of static tags
-		else if (vars::ctags::clan_tag_changer == 7) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(219, 95, 33), f::tahoma_x88, " x77 Cheats");
-		else if (vars::ctags::clan_tag_changer == 8) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(245, 27, 198), f::tahoma_x88, " hopped");
-		else if (vars::ctags::clan_tag_changer == 9) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(115, 96, 96), f::tahoma_x88, " [VALVE]"); //<--- R.I.P og valve tag
-		else if (vars::ctags::clan_tag_changer == 10) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(245, 27, 198), f::tahoma_x88, " Happy");
+		else if (vars::misc::clan_tag_changer == 7) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(219, 95, 33), f::tahoma_x88, " x77 Cheats");
+		else if (vars::misc::clan_tag_changer == 8) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(245, 27, 198), f::tahoma_x88, " hopped");
+		else if (vars::misc::clan_tag_changer == 9) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(115, 96, 96), f::tahoma_x88, " [VALVE]"); //<--- R.I.P og valve tag
+		else if (vars::misc::clan_tag_changer == 10) d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(245, 27, 198), f::tahoma_x88, " Happy");
 		else d::draw_string(vars::menu::menu_x + 150, vars::menu::menu_y - 155, color(255, 255, 255), f::tahoma_x88, " OFF");
 
 
@@ -743,7 +831,7 @@ namespace v
 	void recoil_crosshair()//This is aids rn, thats wat I get for trying to paste
 	{
 		// checks lplayer is alive
-		//if (!g::local || g::local->get_life_state() != LIFE_ALIVE) return;
+		if (!g::local || g::local->get_life_state() != LIFE_ALIVE) return;
 		
 		
 
@@ -758,7 +846,7 @@ namespace v
 
 				vector punchAngle = g::local->get_aim_punch_angle();
 
-				//x -= dx * punchAngle.yaw;   <---- I dont even fuckign know 
+				//x -= dx * punchAngle.yaw;   <---- I dont even fucking know 
 				//y += dy * punchAngle.pitch;
 
 
@@ -766,14 +854,12 @@ namespace v
 				d::draw_line(x, y - 5, x, y + 6, color(255, 255, 255));
 		
 	}
-
 	void arrows()
 	{
 
 		static const auto real_color	= color::green();
 		static const auto fake_color	= color::red();
-		static const auto lby_color		= color::blue();
-
+		
 		auto local = reinterpret_cast<c_baseentity*>(i::entitylist->get_client_entity(i::engineclient->get_local_player()));
 		if (!local) return;
 

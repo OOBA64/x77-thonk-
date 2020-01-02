@@ -8,12 +8,14 @@
 #include <algorithm>
 #include <Windows.h>
 #include <stdexcept>
+#include <MMsystem.h>
 #include <iostream>
 #include <assert.h>
 #include <Psapi.h>
 #include <iomanip>
 #include <cstdint>
 #include <sstream>
+#include <stdio.h>
 #include <chrono>
 #include <memory>
 #include <vector>
@@ -22,12 +24,15 @@
 #include <cmath>
 #include <ctime>
 
+
+
 // helpers
 #include "helpers/address.h"
 #include "helpers/vector.h"
 #include "helpers/color.h"
 #include "helpers/util/util.h"
 #include "helpers/vmt.h"
+#include "Sounds.h"
 
 // sdk
 #include "sdk/sdk.h"

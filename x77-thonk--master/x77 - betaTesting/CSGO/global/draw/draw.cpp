@@ -19,7 +19,6 @@ namespace d
 		i::surface->draw_set_color(col);
 		i::surface->draw_filled_rect(x, y, x + w, y + h);
 	}
-
 	void draw_string(int x, int y, color col, unsigned long font, const char* text, ...)
 	{
 

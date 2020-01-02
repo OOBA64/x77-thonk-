@@ -85,7 +85,8 @@ namespace vars
 		bool	vis_no_scope				= false;
 		bool	vis_skeet_line				= true;
 		bool	vis_force_crosshair			= false;
-		bool		vis_hit_miss			= false;
+		int		vis_hit_miss				= 1;
+		bool	vis_aa_info					= false; 
 		bool	vis_recoil_crosshair		= false;
 		bool	vis_preserve_killfeed		= false;
 		bool	vis_user					= true; 
@@ -117,7 +118,7 @@ namespace vars
 		bool	hvh_tab					= false;
 		bool	hvh_resolver			= false;
 		bool	hvh_anti_aim			= false;
-		int		hvh_fake_lag			= 1;
+		int		hvh_fake_lag			= 0;
 		bool	hvh_fake_duck			= false;
 		bool	hvh_air_stuck			= false; 
 		bool	hvh_fake_walk			= false;
@@ -131,6 +132,8 @@ namespace vars
 		bool	misc_tab				= false;
 		bool	misc_auto_hop			= false;
 		bool	misc_auto_strafe		= false;
+		int		misc_hit_sound			= 0;
+		int		clan_tag_changer		= 0;
 		bool	misc_legitaa_slidefix   = true;
 		bool	misc_anti_untrusted		= true;
 	}
