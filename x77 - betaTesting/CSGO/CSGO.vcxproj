@@ -80,6 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>x77</TargetName>
+    <IncludePath>C:\Users\devan\Desktop\x77 - Alpha\CSGO;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -133,6 +134,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <GenerateMapFile>true</GenerateMapFile>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,6 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="chams.h" />
     <ClInclude Include="features\aimbot\aimbot.h" />
     <ClInclude Include="features\hvh\hvh.h" />
     <ClInclude Include="features\misc\misc.h" />
@@ -203,8 +206,10 @@
     <ClInclude Include="sdk\vgui\ipanel.h" />
     <ClInclude Include="sdk\vgui\isurface.h" />
     <ClInclude Include="setup\setup.h" />
+    <ClInclude Include="Sounds.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="chams.cpp" />
     <ClCompile Include="features\aimbot\aimbot.cpp" />
     <ClCompile Include="features\hvh\hvh.cpp" />
     <ClCompile Include="features\misc\misc.cpp" />

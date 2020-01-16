@@ -171,12 +171,14 @@ namespace menu
 			i = add_menu_entry(i, "- Draw FOV Circle", &vars::vis::vis_fov_circle);
 			i = add_menu_entry_int_string(i, "- Thirdperson (H)", &vars::vis::vis_third_person, 0, 2, 1);
 			i = add_menu_entry(i, "- No Vis Recoil", &vars::vis::vis_no_vis_recoil);
-			i = add_menu_entry(i, "- Recoil Crosshair", &vars::vis::vis_recoil_crosshair);// not working as of now, peek code in visuals//
+			i = add_menu_entry(i, "- Recoil Crosshair", &vars::vis::vis_recoil_crosshair);// not working as of now, peep code in visuals//
 			i = add_menu_entry(i, "- Force Crosshair", &vars::vis::vis_force_crosshair);
 			i = add_menu_entry(i, "- Nightmode", &vars::vis::vis_night_mode);
 			i = add_menu_entry(i, "- Field Of View", &vars::vis::vis_fov, 0.f, 80.f, 5.f);
+			i = add_menu_entry(i, "- Hit/Miss", &vars::vis::vis_hit_miss, 0, 2, 1);
 			i = add_menu_entry(i, "- LBY Indicator", &vars::vis::vis_lby_indicator);
 			i = add_menu_entry(i, "- AA Lines", &vars::vis::vis_anti_aim_lines);
+			i = add_menu_entry(i, "- Skeet Line", &vars::vis::vis_skeet_line);
 			i = add_menu_entry(i, "- Watermark", &vars::vis::vis_watermark);
 
 			if (!vars::vis::vis_viewmodel_tab)
@@ -257,9 +259,9 @@ namespace menu
 			i = add_menu_entry(i, "[-] HvH:", &vars::hvh::hvh_tab);
 
 			i = add_menu_entry(i, "- Resolver", &vars::hvh::hvh_resolver);
-			i = add_menu_entry(i, "- Fake Lag", &vars::hvh::hvh_fake_lag, 1, 14, 1);
 			i = add_menu_entry(i, "- Slow Walk (LSHIFT)", &vars::hvh::hvh_fake_walk);
 			i = add_menu_entry(i, "- Fake Duck (C)", &vars::hvh::hvh_fake_duck);
+			i = add_menu_entry(i, "- Fake Lag", &vars::hvh::hvh_fake_lag, 0, 15, 1);
 			i = add_menu_entry(i, "- AirStuck (N)", &vars::hvh::hvh_air_stuck);
 			i = add_menu_entry(i, "- Anti Aim", &vars::hvh::hvh_anti_aim);
 
@@ -278,17 +280,18 @@ namespace menu
 
 			i = add_menu_entry(i, "- Auto Hop", &vars::misc::misc_auto_hop);
 			i = add_menu_entry(i, "- Auto Strafe", &vars::misc::misc_auto_strafe);
-			i = add_menu_entry(i, "- Legit Slide Fix", &vars::misc::misc_legitaa_slidefix);
+			i = add_menu_entry(i, "- ClanTags", &vars::misc::clan_tag_changer, 0, 12, 1);
+			i = add_menu_entry(i, "- Movement Fix", &vars::misc::misc_legitaa_slidefix); //<-- This is so fucking retarded lol 
 			i = add_menu_entry(i, "- Anti Untrusted", &vars::misc::misc_anti_untrusted);
 
-			if (!vars::ctags::ctag_tab)
-				i = add_menu_entry(i, "[+] CTags:", &vars::ctags::ctag_tab);
-			if (vars::ctags::ctag_tab) {
+			if (!vars::cvars::cvar_tab)
+				i = add_menu_entry(i, "[+] CVARS:", &vars::cvars::cvar_tab);
+			if (vars::cvars::cvar_tab)
+			{
+				i = add_menu_entry(i, "[-] CVARS:", &vars::cvars::cvar_tab);
 
-				i = add_menu_entry(i, "[-] Ctags:", &vars::ctags::ctag_tab);
+				
 
-				i = add_menu_entry(i, "- x77 assware", &vars::ctags::clan_tag_changer_2);
-				i = add_menu_entry(i, "- gamesense", &vars::ctags::clan_tag_changer); // to scare people cuz this cheat is ass 
 			}
 		}
 
@@ -299,6 +302,15 @@ namespace menu
 	void draw_menu(unsigned long font)
 	{
 	
+		/*// menu bar
+		d::draw_filled_rect(vars::menu::menu_x, vars::menu::menu_y - 19, vars::menu::bar_width, vars::menu::bar_height, color(40, 40, 40));
+		d::draw_outlined_rect(vars::menu::menu_x, vars::menu::menu_y - 19, vars::menu::bar_width, vars::menu::bar_height, color().rainbow(.01f, 255));
+		d::draw_outlined_rect(vars::menu::menu_x + 1, vars::menu::menu_y - 18, vars::menu::bar_width - 2, vars::menu::bar_height - 2, color(30, 30, 30));
+		d::draw_outlined_rect(vars::menu::menu_x + 2, vars::menu::menu_y - 17, vars::menu::bar_width - 4, vars::menu::bar_height - 4, color(40, 40, 40));
+		d::draw_outlined_rect(vars::menu::menu_x + 3, vars::menu::menu_y - 16, vars::menu::bar_width - 6, vars::menu::bar_height - 6, color(50, 50, 50));
+		d::draw_outlined_rect(vars::menu::menu_x + 4, vars::menu::menu_y - 15, vars::menu::bar_width - 8, vars::menu::bar_height - 8, color(60, 60, 60));*/
+
+		
 		// title
 		d::draw_string(vars::menu::menu_x + 365, vars::menu::menu_y - 235, color(66, 149, 245), font, " x77 Alpha");
 

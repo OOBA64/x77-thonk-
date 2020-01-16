@@ -24,6 +24,7 @@ namespace v
 	extern void		recoil_crosshair();
 	extern void		user();
 	extern void		watermark();
+	extern void     hitmiss();
 }
 
 #endif // !VISUALS_H

@@ -257,7 +257,9 @@ namespace a
 				if (vars::aim::aim_auto_scope) {
 
 					if (g::local->get_active_weapon()->get_cs_wpn_info()->weapon_type == WEAPONTYPE_SNIPER_RIFLE) 
-						if (!g::local->is_scoped() && (g::local->get_flags() & FL_ONGROUND) && can_shoot() && g::lowest_accuracy) {
+						if (!g::local->is_scoped() && (g::local->get_flags() & FL_ONGROUND) && can_shoot()) {
+
+							if (g::local->is_scoped() == 1) return;
 
 							if (g::local->is_scoped() == 0)
 							{
@@ -307,19 +309,13 @@ namespace a
 		vector_angles(velocity, direction);
 		i::engineclient->get_view_angles(view);
 
-		if (velocity.length() == 0)
-			return;
-
-		 static float speed = 450.f;
+		float speed = velocity.length();
 
 		direction.y = view.y - direction.y;
 
 		angle_vectors(direction, &forward);
 
 		vector negated_direction = forward * -speed;
-
-		
-					
 
 		if (g::target != nullptr) {
 
@@ -328,7 +324,7 @@ namespace a
 			if (vars::aim::aim_enabled && vars::aim::aim_auto_stop) {
 				if (can_shoot() && g::local->get_active_weapon()->is_gun() && (g::local->get_flags() & FL_ONGROUND)) {
 					g::cmd->forwardmove = negated_direction.x;
-					g::cmd->sidemove	= negated_direction.y;
+					g::cmd->sidemove = negated_direction.y;
 				}
 			}
 
@@ -399,17 +395,32 @@ namespace a
 
 	}
 
-	int do_trigger_bot() {
+	void do_trigger_bot(user_cmd* cmd) {
+		//auto entity = reinterpret_cast<c_baseentity*>(i::entitylist->get_client_entity());
 
-		if (vars::aim::aim_trigger_bot == true);
+		if (vars::aim::aim_trigger_bot == true) {
+
+			//Checks *this isn't all the checks you can do* 
+			if (!i::engineclient->is_in_game() || !i::engineclient->is_connected());
+
+			if (i::inputsystem->is_button_down(KEY_C));
+			//if (entity->get_index() == g::local->get_index());
+
+			auto weapon = g::local->get_active_weapon();
+			if (!weapon || WEAPONTYPE_C4 || WEAPONTYPE_KNIFE || WEAPONTYPE_GRENADE)
+				return;
+
+			auto weapon_data = weapon->get_active_weapon();
+			if (!weapon_data)
+				return;
 
 
+			trace_t tr;
+			ray_t ray;
 
+			//angle_vectors(const vector & angles, vector * forward)
 
-
-
-
-		return 0; 
+		}
 	}
 
 

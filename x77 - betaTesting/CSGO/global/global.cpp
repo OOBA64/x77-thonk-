@@ -19,6 +19,7 @@ namespace g
 	bool right_key_pressed	= true;
 	bool down_key_pressed	= false;
 	bool air_stuck_bind		= false; 
+	bool flip				= false; 
 
 	bool send_packet;
 
@@ -27,6 +28,10 @@ namespace g
 	int	shots_fired		= 0;
 	int	shots_hit		= 0;
 	int shots_missed	= 0;
+
+	int shotf = 0; 
+	int shoth = 0; 
+	int shotm = 0; 
 
 	int width;
 	int height;

@@ -20,6 +20,7 @@ namespace g
 	extern bool					down_key_pressed;
 	extern bool					right_key_pressed;
 	extern bool					air_stuck_bind; 
+	extern bool					flip; 
 
 	extern bool					send_packet;
 
@@ -28,6 +29,10 @@ namespace g
 	extern int					shots_fired;
 	extern int					shots_hit;
 	extern int					shots_missed;
+
+	extern int					shotf;
+	extern int					shoth;
+	extern int					shotm;
 
 	extern int					width;
 	extern int					height;

@@ -545,7 +545,7 @@ public:
 
 	int get_money()
 	{
-		return *reinterpret_cast<int*>(uintptr_t(this) + 0xB32C); // m_iAccount
+		return *reinterpret_cast<int*>(uintptr_t(this) + 0xB354); // m_iAccount
 	}
 
 	int get_armor()
@@ -597,7 +597,7 @@ public:
 
 	bool is_scoped()
 	{
-		return *reinterpret_cast<bool*>(uintptr_t(this) + 0x3910); // m_bIsScoped
+		return *reinterpret_cast<bool*>(uintptr_t(this) + 0x3914); // m_bIsScoped
 	}
 
 	movetype_t get_move_type()
@@ -612,7 +612,7 @@ public:
 
 	int get_shots_fired()
 	{
-		return *reinterpret_cast<int*>(uintptr_t(this) + 0xA370); // m_iShotsFired
+		return *reinterpret_cast<int*>(uintptr_t(this) + 0xA380); // m_iShotsFired
 	}
 
 	bool is_dormant()
@@ -674,7 +674,6 @@ public:
 	{
 		return *reinterpret_cast<vector*>(uintptr_t(this) + 0x108) + get_abs_origin(); // m_vecViewOffset[0]
 	}
-
 	float get_max_desync_delta()
 	{
 

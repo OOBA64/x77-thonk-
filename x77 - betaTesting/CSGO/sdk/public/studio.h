@@ -7,6 +7,9 @@
 typedef float quaternion[4];
 typedef float radian_euler[3];
 
+#define TEAM_CS_T 2
+#define TEAM_CS_CT 3
+
 #define BONE_CALCULATE_MASK             0x1F
 #define BONE_PHYSICALLY_SIMULATED       0x01
 #define BONE_PHYSICS_PROCEDURAL         0x02

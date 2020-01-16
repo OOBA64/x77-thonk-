@@ -41,7 +41,11 @@ namespace vars
 		extern bool		aim_ignore_jumping;
 		extern int		aim_baim_after_x_shots;
 	}
-
+	namespace cvars
+	{
+		extern bool cvar_tab;
+	
+	}
 	namespace esp
 	{
 		extern bool		esp_tab;
@@ -84,7 +88,10 @@ namespace vars
 		extern bool		vis_no_scope;
 		extern bool		vis_recoil_crosshair;
 		extern bool		vis_force_crosshair;
+		extern int		vis_hit_miss;
 		extern bool		vis_preserve_killfeed;
+		extern bool		vis_skeet_line;
+		extern bool		vis_aa_info;
 		extern bool		vis_anti_aim_lines;
 		extern bool		vis_lby_indicator;
 		extern bool		vis_watermark;
@@ -118,6 +125,7 @@ namespace vars
 		extern int		hvh_fake_lag;
 		extern bool		hvh_fake_duck;
 		extern bool		hvh_air_stuck; 
+		extern bool		hvh_aa_switch; 
 		extern bool		hvh_fake_walk;
 		extern float	hvh_yaw_add;
 		extern float	hvh_jitter_range;
@@ -130,19 +138,9 @@ namespace vars
 		extern bool misc_auto_hop;
 		extern bool misc_auto_strafe;
 		extern bool misc_legitaa_slidefix;
+		extern int clan_tag_changer;
 		extern bool misc_anti_untrusted;
 	}
-
-	namespace ctags
-	{
-		extern bool ctag_tab; 
-		
-		extern bool clan_tag_changer;
-		extern bool clan_tag_changer_2;
-
-	}
-
-
 }
 
 #endif // !VARS_H

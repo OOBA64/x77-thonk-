@@ -50,7 +50,7 @@ void __stdcall hk_create_move(
 
 			v::night_mode();
 			m::clan_tag();
-			m::clan_tag_og();
+			//m::time_tag();
 
 			if (g::local->get_life_state() == LIFE_ALIVE) {
 
@@ -78,7 +78,7 @@ void __stdcall hk_create_move(
 
 	}
 
-	// anti ut
+	// anti ut *I think this is clamping angles idk* 
 	if (vars::misc::misc_anti_untrusted)
 		g::cmd->viewangles = u::normalize_angle(g::cmd->viewangles);
 
@@ -231,10 +231,11 @@ int __fastcall hk_key_event(
 		if (key_num == KEY_H && vars::vis::vis_third_person > 0)
 			g::third_person_bind = !g::third_person_bind;
 
-		if (key_num == KEY_N && vars::hvh::hvh_air_stuck == true)
+		if (key_num == KEY_N && vars::hvh::hvh_air_stuck)
 			g::air_stuck_bind = !g::air_stuck_bind;
 
-
+		if (key_num == KEY_X && vars::hvh::hvh_anti_aim)
+			g::flip = !g::flip;
 
 		// manual anti aim
 		if (!vars::menu::menu_active) {
@@ -253,19 +254,6 @@ int __fastcall hk_key_event(
 	return original_key_event(ecx, edx, event_code, key_num, current_binding);
 
 }
-
-
-
-
-
-
-
-	
-
-
-
-
-
 
 
 void __fastcall hk_paint_traverse(
@@ -319,7 +307,8 @@ void __fastcall hk_paint_traverse(
 
 			if (vars::vis::vis_watermark)
 				v::watermark();
-
+			if (vars::vis::vis_hit_miss)
+				v::hitmiss();
 			if (vars::vis::vis_user)
 				v::user();
 
